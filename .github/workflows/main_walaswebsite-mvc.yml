@@ -23,7 +23,7 @@ jobs:
           include-prerelease: true
 
       - name: Build with dotnet
-        run: dotnet build Walas_WebSite_MVC\Walas_WebSite_MVC\Walas_WebSite_MVC --configuration Release
+        run: dotnet build Walas_WebSite_MVC/Walas_WebSite_MVC/Walas_WebSite_MVC.csproj --configuration Release
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
