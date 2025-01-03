@@ -15,10 +15,7 @@
     <None Include="wwwroot\assets\.DS_Store" />
     <None Include="wwwroot\assets\css\main.css" />
     <None Include="wwwroot\assets\img\apple-touch-icon.png" />
-    <None Include="wwwroot\assets\img\favicon.png" />
-    <None Include="wwwroot\assets\img\hero-bg.jpg" />
     <None Include="wwwroot\assets\img\logo.png" />
-    <None Include="wwwroot\assets\img\my-profile-img.jpg" />
     <None Include="wwwroot\assets\img\portfolio\app-1.jpg" />
     <None Include="wwwroot\assets\img\portfolio\app-2.jpg" />
     <None Include="wwwroot\assets\img\portfolio\app-3.jpg" />
@@ -32,11 +29,6 @@
     <None Include="wwwroot\assets\img\portfolio\product-2.jpg" />
     <None Include="wwwroot\assets\img\portfolio\product-3.jpg" />
     <None Include="wwwroot\assets\img\services.jpg" />
-    <None Include="wwwroot\assets\img\testimonials\testimonials-1.jpg" />
-    <None Include="wwwroot\assets\img\testimonials\testimonials-2.jpg" />
-    <None Include="wwwroot\assets\img\testimonials\testimonials-3.jpg" />
-    <None Include="wwwroot\assets\img\testimonials\testimonials-4.jpg" />
-    <None Include="wwwroot\assets\img\testimonials\testimonials-5.jpg" />
     <None Include="wwwroot\assets\js\main.js" />
     <None Include="wwwroot\assets\scss\Readme.txt" />
     <None Include="wwwroot\assets\vendor\aos\aos.cjs.js" />
