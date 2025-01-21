@@ -23,10 +23,9 @@ namespace Walas_WebSite_MVC.Controllers
 
             try
             {
-                // 2. Enviar correo
+                // Enviar correo
                 emailService.SendEmail(model);
-
-                return Ok("Mensaje enviado correctamente");
+                return Ok("Tu mensaje ha sido enviado, !Gracias¡");
             }
             catch (Exception ex)
             {
