@@ -11,7 +11,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4  # Actualizado a la última versión
+        uses: actions/checkout@v4  # Usando la última versión
 
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
@@ -20,13 +20,13 @@ jobs:
           include-prerelease: true
 
       - name: Build the project
-        run: dotnet build Walas_WebSite_MVC/Walas_WebSite_MVC/Walas_WebSite_MVC.csproj --configuration Release
+        run: dotnet build ./Walas_WebSite_MVC/Walas_WebSite_MVC.csproj --configuration Release
 
       - name: Publish the project
-        run: dotnet publish ./Walas_WebSite_MVC/Walas_WebSite_MVC/Walas_WebSite_MVC.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish ./Walas_WebSite_MVC/Walas_WebSite_MVC.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4  # Actualizado a v4
+        uses: actions/upload-artifact@v4
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
@@ -39,8 +39,18 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4  # Usamos esta acción en el deploy también
+
+      - name: Set up Azure Login
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+
       - name: Download artifact from build job
-        uses: actions/download-artifact@v4  # Actualizado a v4
+        uses: actions/download-artifact@v4
         with:
           name: .net-app
 
