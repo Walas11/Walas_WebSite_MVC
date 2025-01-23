@@ -45,7 +45,7 @@ jobs:
       - name: Set up Azure Login
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}  # Asegúrate de haber añadido este secreto en GitHub
+          creds: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_KIND_HILL_03646EE1E }}  # Asegúrate de haber añadido este secreto en GitHub
 
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
