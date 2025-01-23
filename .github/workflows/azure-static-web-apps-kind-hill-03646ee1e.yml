@@ -11,7 +11,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4  # Actualizado a la última versión
 
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
@@ -26,7 +26,7 @@ jobs:
         run: dotnet publish ./Walas_WebSite_MVC/Walas_WebSite_MVC.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4  # Actualizado a v4
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
@@ -40,15 +40,13 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v3
-        with:
-          name: .net-app
+        uses: actions/download-artifact@v3  # Esta acción aún está bien en la versión 3, pero puedes actualizarla a v4 si lo prefieres
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'WalasWebSite-MVC'  # Nombre de la aplicación en Azure
-          slot-name: 'Production'       # Si usas un slot de producción
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}  # Se debe almacenar el perfil de publicación en los secrets
-          package: .  # La carpeta donde se encuentra la publicación
+          app-name: 'WalasWebSite-MVC'
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
+          package: .
