@@ -40,7 +40,9 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v3  # Esta acción aún está bien en la versión 3, pero puedes actualizarla a v4 si lo prefieres
+        uses: actions/download-artifact@v4  # Actualizado a v4
+        with:
+          name: .net-app
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
